@@ -1,0 +1,52 @@
+% タイトル
+\title{Beamer Starter with Docker}
+\subtitle{副題}
+\author{著者 \and 著者2}
+\institute[所属略称]{所属}
+\date{\today}
+
+% テーマ
+% \usetheme[nofirafonts]{focus}
+% \definecolor{main}{rgb}{0.16, 0.32, 0.75}
+% \definecolor{background}{RGB}{240, 247, 255}
+% \usetheme{Cuerna}
+% \usetheme{PaloAlto}
+\usetheme{Rochester}
+% \usetheme{split}
+% デフォルトが明朝なのでゴシック体にする
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+
+% パッケージ読み込み
+\usepackage{pxjahyper, multicol, multirow, tikz, listings}
+% 描画パッケージtikzのライブラリ読み込み
+\usetikzlibrary{positioning, angles, intersections, quotes}
+
+% 目次(Tabole of Contents)を表示する際の階層
+\setcounter{tocdepth}{2}
+
+% フッターをページ番号だけにする
+\setbeamertemplate{footline}[frame number]
+% フッターのフォントサイズと太字
+\setbeamerfont{footline}{size=\Large,series=\bfseries}
+% フッターのアイコンをなくす
+\setbeamertemplate{navigation symbols}{}
+% 目次のナンバリングを文字にする
+\setbeamertemplate{section in toc}[sections numbered]
+% スライドタイトルのフォントサイズ
+\setbeamerfont{frametitle}{size=\huge}
+
+% 各sectionの初めに自動で挿入するスライド
+\AtBeginSection[]{
+  \frame{
+    \frametitle{各セクション先頭に自動で挿入}
+    \tableofcontents[currentsection]
+  }
+}
+
+% 各subsectionの初めに自動で挿入するスライド
+\AtBeginSubsection[]{
+  \frame{
+    \frametitle{各サブセクション先頭に自動で挿入}
+      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
+  } 
+}

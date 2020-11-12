@@ -1,0 +1,30 @@
+\documentclass[dvipdfmx]{beamer}
+\usepackage{pxjahyper, multicol, multirow, tikz}
+
+\include{settings}
+
+\begin{document}
+
+\frame[plain]{\maketitle}
+
+\begin{frame}{}
+  \frametitle{目次が自動生成される}
+  \tableofcontents
+\end{frame}
+
+\begin{frame}{}
+  \frametitle{段組もできる}
+    \begin{multicols}{2}
+      \tableofcontents[sections={1-2}]
+      \columnbreak
+      \tableofcontents[sections={3}]
+    \end{multicols}
+\end{frame}
+
+\section{セクションA}
+\include{sec1}
+\section{セクションB}
+\include{sec2}
+\section{セクションC}
+\include{sec3}
+\end{document}
