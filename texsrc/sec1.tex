@@ -1,9 +1,37 @@
-\subsection{サブセクションa}
+\section{セクションA}
+
+\subsection{サブセクション1}
+\begin{frame}{}
+  \frametitle{アニメーションもできる}
+  \begin{itemize}
+    \item 1枚目
+      \onslide<2->
+    \item 2枚目
+    \item 右下のページ数は変わらない
+    \item handout版ではまとまってる
+  \end{itemize}
+\end{frame}
+
+\subsection{サブセクション2}
 \begin{frame}{}
   \frametitle{\insertsubsection}
-  セクション名
-  <\insertsection>
-  サブセクション名
-  <\insertsubsection>
-  も自動挿入できる
+  下記なども呼び出せる
+  \begin{description}
+    \item [セクション] \insertsection
+    \item [サブセクション] \insertsubsection
+  \end{description}
+\end{frame}
+
+\subsection{サブセクション3}
+\begin{frame}{}
+  \frametitle{\insertsubsection}
+  もちろんtex記法できれいな数式を書ける
+  $$\displaystyle e^{i\varphi} = \cos{\varphi} + i\sin{\varphi} $$
+\end{frame}
+
+\subsection{サブセクション4}
+\begin{frame}{}
+  \frametitle{\insertsubsection}
+  git pull
+  docker-compose up
 \end{frame}
