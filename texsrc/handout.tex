@@ -1,5 +1,5 @@
 \documentclass[dvipdfmx, handout]{beamer}
-\usepackage{pxjahyper, multicol, multirow, tikz}
+\usepackage{pxjahyper, listings, multicol, multirow, tikz}
 
 \include{settings}
 
@@ -15,29 +15,13 @@
 \begin{frame}{}
   \frametitle{段組もできる}
     \begin{multicols}{2}
-      \tableofcontents[sections={1-2}]
+      \tableofcontents[sections={1}]
       \columnbreak
-      \tableofcontents[sections={3}]
+      \tableofcontents[sections={2-3}]
     \end{multicols}
 \end{frame}
 
-\begin{frame}{}
-  \frametitle{アニメーションもできる}
-  \begin{itemize}
-    \item 1枚目
-      \onslide<2->
-    \item 2枚目
-      \onslide<3->
-    \item 3枚目
-      \onslide<4->
-    \item ページ数は変わらないしhandoutではまとまってる
-  \end{itemize}
-\end{frame}
-
-\section{セクションA}
 \include{sec1}
-\section{セクションB}
 \include{sec2}
-\section{セクションC}
 \include{sec3}
 \end{document}

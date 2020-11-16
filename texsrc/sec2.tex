@@ -1,6 +1,31 @@
-\section{セクションB}
-\subsection{サブセクションb}
+\section{動かしてみる}
+
 \begin{frame}{}
+  \frametitle{前提条件}
+  \begin{itemize}
+    \item gitのインストール
+      \begin{itemize}
+        \item  なければGitHubからZipをダウンロード
+      \end{itemize}
+    \item Dockerのインストール
+  \end{itemize}
+  抜けを発見次第追記
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{とりあえず実行}
+  docker imageのpullが始まります
+  \begin{lstlisting}[]
+  git pull
+  docker-compose up --build
+  \end{lstlisting}
+
+  texsrc/のなかのmain.pdfに書き出される
+
+\end{frame}
+
+\begin{frame}{Handout版}
   \frametitle{\insertsubsection}
   セクション名
   <\insertsection>

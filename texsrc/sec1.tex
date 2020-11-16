@@ -1,37 +1,45 @@
-\section{セクションA}
+\section{概要}
 
-\subsection{サブセクション1}
+\subsection{サブセクション3}
+
+\begin{frame}{}
+  \frametitle{エディタでスライドを作成できる}
+
+    下記のframeがスライド一枚に該当
+
+    \begin{center}
+      \textbackslash begin\{frame\} \\
+      ... \\
+      \textbackslash end\{frame\}
+    \end{center}
+
+    \bigskip
+
+    基本は\TeX 記法なのでもちろん数式をきれいに書ける
+
+      \begin{displaymath}
+        \int^{b}_{a} f(x) dx = \lim_{n \to \infty} \sum^{n-1}_{i=0} f(x_{i}) \Delta x
+      \end{displaymath}
+\end{frame}
+
 \begin{frame}{}
   \frametitle{アニメーションもできる}
   \begin{itemize}
     \item 1枚目
       \onslide<2->
     \item 2枚目
-    \item 右下のページ数は変わらない
-    \item handout版ではまとまってる
+      \begin{itemize}
+        \item 右下のページ数は変わらない
+        \item handout版ではまとまってる
+      \end{itemize}
   \end{itemize}
 \end{frame}
 
-\subsection{サブセクション2}
 \begin{frame}{}
-  \frametitle{\insertsubsection}
+  \frametitle{定義すると再利用できる}
   下記なども呼び出せる
   \begin{description}
     \item [セクション] \insertsection
     \item [サブセクション] \insertsubsection
   \end{description}
-\end{frame}
-
-\subsection{サブセクション3}
-\begin{frame}{}
-  \frametitle{\insertsubsection}
-  もちろんtex記法できれいな数式を書ける
-  $$\displaystyle e^{i\varphi} = \cos{\varphi} + i\sin{\varphi} $$
-\end{frame}
-
-\subsection{サブセクション4}
-\begin{frame}{}
-  \frametitle{\insertsubsection}
-  git pull
-  docker-compose up
 \end{frame}
