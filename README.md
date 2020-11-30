@@ -14,12 +14,12 @@ You can easily start beamer experience, using docker.
 ## Usage
 
 ### Quickly
-```bash
+```sh
 docker-compose up
 ```
 
 ### Normally
-```bash
+```sh
 # only at the first time
 docker pull paperist/alpine-texlive-ja:latest
 docker-compose build
@@ -37,9 +37,9 @@ docker-compose up
 
 ###  for handout
 
-beamer can make handout, slides without animation and page number.
+beamer can make handout, slides without animation and page number duplication.
 
-```bash
+```sh
 docker-compose run --rm beamer /workdir/tex_compile_with_handout.sh
 ```
 
