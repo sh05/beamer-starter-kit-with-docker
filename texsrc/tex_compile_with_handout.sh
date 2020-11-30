@@ -1,16 +1,19 @@
 #!/bin/ash
+cd /workdir
 
-rm *.aux *.nav *.out *.snm *.toc *.dvi *.log
-uplatex -output-directory=/workdir /workdir/main.tex
-dvipdfmx -o /workdir/main.pdf /workdir/main.dvi
-uplatex -output-directory=/workdir /workdir/main.tex
-dvipdfmx -o /workdir/main.pdf /workdir/main.dvi
+rm *.aux *.vrb *.nav *.out *.snm *.toc *.dvi *.log
+uplatex main.tex
+pbibtex main
+uplatex main.tex
+uplatex main.tex
+dvipdfmx main.dvi
 
 cp /workdir/main.tex /workdir/handout.tex
 sed -i 's/]{beamer}/, handout]{beamer}/' /workdir/handout.tex
 
-rm *.aux *.nav *.out *.snm *.toc *.dvi *.log
-uplatex -output-directory=/workdir /workdir/handout.tex
-dvipdfmx -o /workdir/handout.pdf /workdir/handout.dvi
-uplatex -output-directory=/workdir /workdir/handout.tex
-dvipdfmx -o /workdir/handout.pdf /workdir/handout.dvi
+rm *.aux *.vrb *.nav *.out *.snm *.toc *.dvi *.log
+uplatex handout.tex
+pbibtex handout
+uplatex handout.tex
+uplatex handout.tex
+dvipdfmx handout.dvi
