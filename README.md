@@ -40,7 +40,7 @@ docker-compose up
 beamer can make handout, slides without animation and page number.
 
 ```bash
-dcrun beamer /workdir/tex_compile_with_handout.sh
+docker-compose run --rm beamer /workdir/tex_compile_with_handout.sh
 ```
 
 #### PDF location
