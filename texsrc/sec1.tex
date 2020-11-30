@@ -1,45 +1,49 @@
-\section{概要}
-
-\subsection{サブセクション3}
-
+\section{入門}
+\subsection{条件確認と準備}
 \begin{frame}{}
-  \frametitle{エディタでスライドを作成できる}
-
-    下記のframeがスライド一枚に該当
-
-    \begin{center}
-      \textbackslash begin\{frame\} \\
-      ... \\
-      \textbackslash end\{frame\}
-    \end{center}
-
-    \bigskip
-
-    基本は\TeX 記法なのでもちろん数式をきれいに書ける
-
-      \begin{displaymath}
-        \int^{b}_{a} f(x) dx = \lim_{n \to \infty} \sum^{n-1}_{i=0} f(x_{i}) \Delta x
-      \end{displaymath}
-\end{frame}
-
-\begin{frame}{}
-  \frametitle{アニメーションもできる}
+  \frametitle{前提条件}
   \begin{itemize}
-    \item 1枚目
-      \onslide<2->
-    \item 2枚目
-      \begin{itemize}
-        \item 右下のページ数は変わらない
-        \item handout版ではまとまってる
-      \end{itemize}
+    \item git
+    \item Docker-Compose
   \end{itemize}
 \end{frame}
 
-\begin{frame}{}
-  \frametitle{定義すると再利用できる}
-  下記なども呼び出せる
-  \begin{description}
-    \item [セクション] \insertsection
-    \item [サブセクション] \insertsubsection
-  \end{description}
+\begin{frame}[fragile]
+  \frametitle{準備}
+  gitがインストールされている場合
+  \scriptsize
+  \begin{lstlisting}[language=sh]
+  git clone \
+  https://github.com/sh05/beamer-starter-kit-with-docker.git
+  \end{lstlisting}
+  \normalsize
+  \medskip
+  gitがインストールされていない場合
+  \begin{enumerate}
+      \item \footnotesize{\textit{https://github.com/sh05/beamer-starter-kit-with-docker}}にアクセス
+      \item \textit{Code}をクリック
+      \item \textit{Download ZIP}を選択
+      \item 解凍して端末で表示
+  \end{enumerate}
 \end{frame}
+
+\subsection{とりあえず動かしてみる}
+\begin{frame}[fragile]
+  \frametitle{\insertsubsection}
+  ※初回は大きなデータのダウンロードが始まります
+  \scriptsize
+  \begin{lstlisting}[caption=雑な実行, language=sh]
+  docker-compose up
+  \end{lstlisting}
+  \begin{lstlisting}[caption=丁寧な実行, language=sh]
+  # 初回
+  docker pull paperist/alpine-texlive-ja:latest
+  docker-compose build
+  docker-compose up
+  # 以降
+  docker-compose up
+  \end{lstlisting}
+  \normalsize
+    PDFファイルが\highlight{\textit{texsrc/main.pdf}}に書き出される
+\end{frame}
+

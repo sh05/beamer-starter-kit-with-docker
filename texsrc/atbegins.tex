@@ -1,0 +1,29 @@
+% Section1で表示を変えたかったが、special star textがうまく動作しないため別ファイル
+% 各sectionの初めに自動で挿入するスライド
+\AtBeginSection{
+  \setbeamercolor{background canvas}{bg=beamer@blendedblue}
+  % \setbeamercolor{itemize item}{fg=white,bg=beamer@blendedblue}
+  \color{white}
+  \frame[plain]{
+      \indent \Huge{\insertsection}
+      \bigskip
+      \footnotesize
+      \\\indent 各sectionの初めに挿入するスライドを設定可能
+      \\\indent 現在のsection名などを動的に表示させることも可能
+  }
+  \color{black}
+  \setbeamercolor{background canvas}{bg=white}
+  % \setbeamercolor{itemize item}{fg=black,bg=white}
+}
+
+% 各subsectionの初めに自動で挿入するスライド
+\AtBeginSubsection{
+  \frame{
+    \frametitle{目次}
+      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
+      \bigskip
+      \footnotesize
+      \indent 各subsectionの初めに自動で挿入するスライドを設定可能
+      \\\indent item おすすめは、目次に進捗情報を設定して表示
+  } 
+}

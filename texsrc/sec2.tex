@@ -1,35 +1,177 @@
-\section{動かしてみる}
-
-\begin{frame}{}
-  \frametitle{前提条件}
-  \begin{itemize}
-    \item gitのインストール
-      \begin{itemize}
-        \item  なければGitHubからZipをダウンロード
-      \end{itemize}
-    \item Dockerのインストール
-  \end{itemize}
-  抜けを発見次第追記
+\section{Beamerとは}
+\subsection{紹介}
+\begin{frame}
+    \frametitle{\insertsection}
+    \beameris
+    \bigskip
+    \\つまり
+    \assert{プレゼン資料をテキスト(\LaTeX)で管理できる}
 \end{frame}
 
+\begin{frame}
+    \frametitle{何が嬉しい}
+    \begin{itemize}
+        \item 好きなエディタで作成できる
+        \item 動的に処理してくれる
+        \begin{itemize}
+            \item ページ数の分母
+            \item 目次
+            \begin{itemize}
+                \item 現在の各section,sebsectionをハイライト
+            \end{itemize}
+            \item 各section,sebsectionの開始時に自動でスライドを挿入
+            \item 外部だけでなく資料内部へもリンクを作成
+        \end{itemize}
+        \item 構造的に資料作成できる（主観）
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{目次がコマンドで自動生成される}
+  \tableofcontents
+  \bigskip
+  \footnotesize
+  \begin{itemize}
+      \item \textbackslash tableofcontentsで自動生成される
+      \item 各項目をPDFのビューアでクリックすると移動できる
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{段組もできる}
+    \begin{multicols}{2}
+      \tableofcontents[sections={1}]
+      \columnbreak
+      \tableofcontents[sections={2-3}]
+    \end{multicols}
+    \bigskip
+    \footnotesize
+    \begin{itemize}
+        \item \textbackslash tableofcontentsで自動生成される
+        \item 各項目をPDFのビューアでクリックすると移動できる
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ \LaTeX にできることはできる}
+  もちろん数式をきれいに書ける 
+  \begin{displaymath}
+      \int^{b}_{a} f(x) dx = \lim_{n \to \infty} \sum^{n-1}_{i=0} f(x_{i}) \Delta x
+  \end{displaymath}
+  コマンドに登録して再利用できる\\
+    例えば\textbackslash beamerisに\small{\textcolor{blue!35}{\beameris}}を登録できる。また、後述のTikzと相性が良い
+\end{frame}
+
+\subsection{基本}
+% コード埋め込み用
+\begin{lrbox}{\codebox}
+    \begin{lstlisting}[language=TeX]
+    \begin{frame}
+    ...
+    \end{frame}
+    \end{lstlisting}
+\end{lrbox}
 
 \begin{frame}[fragile]
-  \frametitle{とりあえず実行}
-  docker imageのpullが始まります
-  \begin{lstlisting}[]
-  git pull
-  docker-compose up --build
-  \end{lstlisting}
-
-  texsrc/のなかのmain.pdfに書き出される
-
+  \frametitle{基本}
+  下記のframeがスライド一枚に該当\\
+  \medskip
+  \usebox{\codebox}
+  \bigskip
+  文法などについてはとても親切なページが多いので詳しくはそちらを参照 \cite{BeamerT10:online} \cite{Beamer読本73:online} (クリックで参考文献)、ここでは主機能の紹介に留める
 \end{frame}
 
-\begin{frame}{Handout版}
-  \frametitle{\insertsubsection}
-  セクション名
-  <\insertsection>
-  サブセクション名
-  <\insertsubsection>
-  も自動挿入できる
+
+\begin{frame}{}
+  \frametitle{アニメーション}
+  \begin{itemize}
+    \item 1枚目
+      \onslide<2->
+    \item 2枚目
+      \onslide<3->
+    \item 3枚目
+      \begin{itemize}
+        \item 右下のページ数は変わらない
+        \item handout版ではまとまってる
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+  \frametitle{表}
+    \begin{multicols}{2}
+
+  例：表\ref{tab:month} は和風月名と英語での月表現のリストだが、試験によく出るので要注意だ
+      \columnbreak
+  \small
+  \begin{table}[htb]
+      \begin{center}
+          \caption{和風月名と月の英語表現}
+          \label{tab:month}
+          \begin{tabular}{rcc}
+              \hline
+              月 & 和風月名 & 英語 \\
+              \hline \hline
+              1 & 睦月 &   January \\
+              2 & 如月 &   February \\
+              3 & 弥生 &   March \\
+              4 & 卯月 &   April \\
+              5 & 皐月 &   May	 \\
+              6 & 水無月 & June \\
+              7 & 文月 &   July \\
+              8 & 葉月 &   August	 \\
+              9 & 長月 &   September \\
+              10 & 神無月 & October	 \\
+              11 & 霜月 &  November  \\
+              12 & 師走 &  December  \\
+              \hline
+          \end{tabular}
+      \end{center}
+  \end{table}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{}
+  \frametitle{表とアニメーション}
+    \begin{multicols}{2}
+
+  例：表\ref{tab:monthanime} は和風月名と英語での月表現のリストだが、試験によく出るので要注意だ
+      \columnbreak
+  \small
+  \begin{table}[htb]
+      \begin{center}
+          \caption{和風月名と月の英語表現}
+          \label{tab:monthanime}
+          \begin{tabular}{rcc}
+              \hline
+              月 & 和風月名 & 英語 \\
+              \hline \hline
+              1 & 睦月 &   January \\
+              2 & 如月 &   February \\
+              3 & 弥生 &   March \onslide<2-3> \\
+              4 & 卯月 &   April \\
+              5 & 皐月 &   May	 \\
+              6 & 水無月 & June \\
+              7 & 文月 &   July \\
+              8 & 葉月 &   August	 \\
+              9 & 長月 &   September \\
+              10 & 神無月 & October	 \onslide<3-4>  \\
+              11 & 霜月 &  November  \\
+              12 & 師走 &  December  \\
+              \hline
+          \end{tabular}
+      \end{center}
+  \end{table}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}
+  \frametitle{図}
+  図 \ref{fig:hlm}は髪を長く伸ばしている、ロングヘアー（ロングヘア・ロン毛）の男性のイラスト。いらすとや\cite{かわいいフリー素30:online}のランダムで出た画像で特に意味はない。
+  \begin{figure}[]
+    \centering
+      \includegraphics[width=0.3\linewidth]{hair_long_man.png}
+      \caption{ロングヘアーの男性のイラスト}
+      \label{fig:hlm}
+    \end{figure}
 \end{frame}

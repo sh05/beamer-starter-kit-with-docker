@@ -1,10 +1,112 @@
-\section{セクションC}
-\subsection{サブセクションc}
-\begin{frame}{}
+\section{その他}
+\subsection{配布用資料}
+\begin{frame}[fragile]
   \frametitle{\insertsubsection}
-  セクション名
-  <\insertsection>
-  サブセクション名
-  <\insertsubsection>
-  も自動挿入できる
+  アニメーションが適用されていない配布用資料を作成することができる
+  \scriptsize
+  \begin{lstlisting}[caption=丁寧, language=sh]
+  docker-compose run --rm beamer \
+  /workdir/tex_compile_with_handout.sh
+  \end{lstlisting}
+  \normalsize
+    PDFファイルが\highlight{\textit{texsrc/handout.pdf}}に書き出される
 \end{frame}
+
+\subsection{描画用パッケージ}
+\begin{frame}{\insertsubsetion}
+  \frametitle{\insertsubsection TikZ}
+  \footnotesize
+  Beamerでも下記を利用することによって描画が可能になる。
+  \smallskip
+    \begin{description}
+        \item[PGF] PGF (Portable Graphics Format) は，Till Tantau（Beamerのオリジナルの開発者）によって作成され，現在は Henri Menke, Christian Feuersänger などのメンバーによって開発・メンテナンスされている TeX 用の描画パッケージです。 \cite{TikZTeXW51:online}
+        \item[TikZ] PGF のフロントエンドとして一般的には TikZ (TikZ ist kein Zeichenprogramm = "TikZ is not a drawing program") を使用します。 Beamer が基礎としている描画エンジンも PGF です。 \cite{TikZTeXW51:online}
+    \end{description}
+  \smallskip
+    この資料では概要に留める。チュートリアルとしてこのページ\cite{TikZTas85:online}がとても親切で、この資料中でも参考にしている。
+\end{frame}
+
+\begin{frame}
+   \frametitle{グラフを描く}
+    \begin{figure}[!h]
+        \centering
+        \begin{tikzpicture}[every node/.style={circle,fill=beamer@blendedblue,text=white}]
+            \node (s) {s};
+            \node[above right=1.5cm of s] (a) {a};
+            \node[below right=1.5cm of s] (b) {b};
+            \node[right=1.5cm of s] (c) {c};
+            \node[above left=1.5cm of s] (d) {d};
+            \node[below left=1.5cm of s] (e) {e};
+            \node[left=1.5cm of s] (f) {f};
+            \node[below=1.5cm of s] (g) {g};
+            \foreach \u / \v in{a/s,b/s,c/s,d/s,e/s,f/s,g/s}
+            \draw[->] (\u) -- (\v);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+\begin{frame}
+   \frametitle{もちろん図やアニメーションも}
+   \begin{figure}[!h]
+       \centering
+       \begin{tikzpicture}
+           \onslide<2->
+           \node (s) {
+               \includegraphics[width=.125\textwidth]{pose_heart_hand_idol_man.png}
+           };
+           \onslide<1->
+           \node[above right=1cm of s] (a) {
+               \includegraphics[width=.125\textwidth]{otaku_girl_fashion_penlight.png}
+           };
+           \node[below right=1cm of s] (b) {
+               \includegraphics[width=.125\textwidth]{idol_fan_woman.png}
+           };
+           \node[right=1cm of s] (c) {
+               \includegraphics[width=.125\textwidth]{idol_fan_penlight_woman_.png}
+           };
+           \node[above left=1cm of s] (d) {
+               \includegraphics[width=.125\textwidth]{idol_koisuru_girl.png}
+           };
+           \node[below left=1cm of s] (e) {
+               \includegraphics[width=.125\textwidth]{otaku_otagei_woman.png}
+           };
+           \node[left=1cm of s] (f) {
+               \includegraphics[width=.125\textwidth]{idol_fan_penlight_women_tv.png}
+           };
+           \node[below=1cm of s] (g) {
+               \includegraphics[width=.125\textwidth]{ita_bag_woman.png}
+           };
+           \foreach \u / \v in{a/s,b/s,c/s,d/s,e/s,f/s,g/s}
+            \draw[->, ultra thick] (\u) -- (\v);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{コマンド登録}
+    \assert{大事な主張を示すこれ}
+    \indent や\\
+    \indent 文中で強調する\highlight{これ}\\
+    \indent は、それぞれ\textbackslash assert,  \textbackslash highlightに登録してあり、テキストを引数として受け取るようにしてある（引数は一つなので、色は設定時に定義する）
+\end{frame}
+
+\begin{frame}
+  \frametitle{もっと発展的なことがしたくなったら}
+    \begin{enumerate}
+        \item 簡単な英語でいいのでググる
+        \item tex.stackexchange.comやその他にたどり着く
+        \begin{itemize}
+        \item テキストなのでノウハウの蓄積・共有が充実
+        \item 枯れた技術であるのでやりたいことができないことはおそらくない
+        \end{itemize}
+    \end{enumerate}
+    \medskip
+    \highlight{\textit{texsrc/settings.tex}}にもその他の設定がコメント付きで記載済み。
+\end{frame}
+
+\setbeamercolor{background canvas}{bg=beamer@blendedblue}
+\color{white}
+\begin{frame}[plain]
+    \indent \Large{最後まで見てくれてありがとうございました。}
+    \color{black}
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}

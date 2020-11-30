@@ -1,27 +1,19 @@
 \documentclass[dvipdfmx, handout]{beamer}
-\usepackage{pxjahyper, listings, multicol, multirow, tikz}
-
+\usepackage{pxjahyper, listings, multicol, multirow, tikz, url, caption}
 \include{settings}
 
 \begin{document}
 
-\frame[plain]{\maketitle}
-
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
 \begin{frame}{}
-  \frametitle{目次が自動生成される}
+  \frametitle{目次}
   \tableofcontents
 \end{frame}
-
-\begin{frame}{}
-  \frametitle{段組もできる}
-    \begin{multicols}{2}
-      \tableofcontents[sections={1}]
-      \columnbreak
-      \tableofcontents[sections={2-3}]
-    \end{multicols}
-\end{frame}
-
 \include{sec1}
+\include{atbegins}
 \include{sec2}
 \include{sec3}
+\include{ref}
 \end{document}

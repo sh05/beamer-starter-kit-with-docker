@@ -4,5 +4,4 @@ services:
     image: paperist/alpine-texlive-ja:latest
     volumes:
       - "./texsrc/:/workdir"
-      - "./mystyle/:/usr/local/texlive/2020/texmf-dist/tex/latex/mystyle/"
     command: /workdir/tex_compile.sh
