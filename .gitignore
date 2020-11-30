@@ -7,4 +7,6 @@
 *.toc
 *.nav
 *.vrb
+*.bbl
+*.blg
 .DS_Store
