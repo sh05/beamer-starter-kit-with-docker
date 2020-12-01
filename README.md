@@ -8,7 +8,7 @@ You can easily start beamer experience, using docker.
 
 ## Requirement
 
-- git
+- Docker
 - Docker-Compose
 
 ## Usage
