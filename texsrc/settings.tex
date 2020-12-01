@@ -90,6 +90,14 @@
 \AtBeginSubsection{
   \frame{
     \frametitle{目次}
-      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
+    \begin{multicols}{2}
+      \tableofcontents[sections={1}, sectionstyle=show/shaded,subsectionstyle=show/shaded]
+      \bigskip
+      \tableofcontents[sections={2}, sectionstyle=show/shaded,subsectionstyle=show/shaded]
+      \columnbreak
+      \tableofcontents[sections={3}, sectionstyle=show/shaded,subsectionstyle=show/shaded]
+      \bigskip
+      \tableofcontents[sections={4}, sectionstyle=show/shaded,subsectionstyle=show/shaded]
+    \end{multicols}
   } 
 }

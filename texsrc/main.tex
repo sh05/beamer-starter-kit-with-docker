@@ -9,7 +9,15 @@
 \end{frame}
 \begin{frame}{}
   \frametitle{目次}
-  \tableofcontents
+    \begin{multicols}{2}
+      \tableofcontents[sections={1}]
+      \bigskip
+      \tableofcontents[sections={2}]
+      \columnbreak
+      \tableofcontents[sections={3}]
+      \bigskip
+      \tableofcontents[sections={4}]
+    \end{multicols}
 \end{frame}
 \include{sec1}
 \include{atbegins}

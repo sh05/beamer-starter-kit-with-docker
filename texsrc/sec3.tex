@@ -31,15 +31,15 @@
     \begin{figure}[!h]
         \centering
         \begin{tikzpicture}[every node/.style={circle,fill=beamer@blendedblue,text=white}]
-            \node (s) {s};
-            \node[above right=1.5cm of s] (a) {a};
-            \node[below right=1.5cm of s] (b) {b};
-            \node[right=1.5cm of s] (c) {c};
-            \node[above left=1.5cm of s] (d) {d};
-            \node[below left=1.5cm of s] (e) {e};
-            \node[left=1.5cm of s] (f) {f};
-            \node[below=1.5cm of s] (g) {g};
-            \foreach \u / \v in{a/s,b/s,c/s,d/s,e/s,f/s,g/s}
+            \node (O) {O};
+            \node[above right=1.5cm of O] (a) {a};
+            \node[below right=1.5cm of O] (b) {b};
+            \node[right=1.5cm of O] (c) {c};
+            \node[above left=1.5cm of O] (d) {d};
+            \node[below left=1.5cm of O] (e) {e};
+            \node[left=1.5cm of O] (f) {f};
+            \node[below=1.5cm of O] (g) {g};
+            \foreach \u / \v in{a/O,b/O,c/O,d/O,e/O,f/O,g/O}
             \draw[->] (\u) -- (\v);
         \end{tikzpicture}
     \end{figure}
